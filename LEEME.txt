@@ -1,0 +1,4 @@
+
+
+Se ejecuta con:
+python.exe pdf_plumber_dos.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA

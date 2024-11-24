@@ -2,7 +2,7 @@ from docling.document_converter import DocumentConverter
 import os
 import pathlib
 
-class PDFExtractor:
+class PDFDocling:
     def extract_text_to_file(self, input_dir: str, output_dir: str) -> None:
         # Create output directory if it doesn't exist
         pathlib.Path(output_dir).mkdir(parents=True, exist_ok=True)
