@@ -13,8 +13,9 @@ logging.basicConfig(
 def extract_text_from_pdf(input_path, output_path):
     """
     Extrae texto de un archivo PDF utilizando PdfPlumber y lo guarda en un archivo .txt.
+    Si el texto extraído está vacío, mueve el PDF a la carpeta ERROR.
     """
-    print(".", end='', flush=True)  # Al inicio de extract_text_from_pdf
+    print(".", end='', flush=True)
     
     error_folder = os.path.join(os.path.dirname(output_path), 'ERROR')
     
@@ -24,22 +25,31 @@ def extract_text_from_pdf(input_path, output_path):
             for page in pdf.pages:
                 text += page.extract_text() or ""  # Maneja páginas sin texto
 
-        # Guarda el texto extraído
+        # Si el texto está vacío, mover el PDF a la carpeta ERROR
+        if not text.strip():
+            print("!", end='', flush=True)
+            logging.error(f"PDF sin contenido: {input_path}")
+
+            if not os.path.exists(error_folder):
+                os.makedirs(error_folder)
+            error_file = os.path.join(error_folder, os.path.basename(input_path))
+            os.rename(input_path, error_file)
+            return
+
+        # Guarda el texto extraído solo si hay contenido
         with open(output_path, 'w', encoding='utf-8') as txt_file:
             txt_file.write(text)
+
+        print(":", end='', flush=True)
     
     except Exception as e:
-        print("X", end='', flush=True)  # Al final de extract_text_from_pdf
+        print("X", end='', flush=True)
         logging.error(f"Error procesando {input_path}: {e}")
 
-        # Create ERROR folder if it doesn't exist
         if not os.path.exists(error_folder):
             os.makedirs(error_folder)
-        # Move problematic PDF to ERROR folder
         error_file = os.path.join(error_folder, os.path.basename(input_path))
         os.rename(input_path, error_file)
-    
-    print(":", end='', flush=True)  # Al final de extract_text_from_pdf
 
 def process_pdfs(input_folder, output_folder, max_workers=4):
     """
