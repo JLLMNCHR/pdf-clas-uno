@@ -9,6 +9,10 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
+# Declaración de contadores globales
+ok_files = 0
+ko_files = 0
+
 def extract_text_from_pdf(input_path, output_path, processed_folder):
     """
     Extrae texto de un archivo PDF utilizando PdfPlumber.
@@ -16,6 +20,7 @@ def extract_text_from_pdf(input_path, output_path, processed_folder):
     """
     print(".", end='', flush=True)
     
+    global ok_files, ko_files
     error_folder = os.path.join(os.path.dirname(output_path), 'ERROR')    
     
     try:
@@ -27,6 +32,7 @@ def extract_text_from_pdf(input_path, output_path, processed_folder):
         # Si el texto está vacío, mover el PDF a la carpeta ERROR
         if not text.strip():
             print("!", end='', flush=True)
+            ko_files += 1
             logging.error(f"PDF sin contenido: {input_path}")
             if not os.path.exists(error_folder):
                 os.makedirs(error_folder)
@@ -39,10 +45,12 @@ def extract_text_from_pdf(input_path, output_path, processed_folder):
 
         # Mueve el PDF procesado a la carpeta PROCESADOS
         print(":", end='', flush=True)
+        ok_files += 1
         os.rename(input_path, os.path.join(processed_folder, os.path.basename(input_path)))
 
     except Exception as e:
         print("X", end='', flush=True)
+        ko_files += 1
         logging.error(f"Error procesando {input_path}: {e}")
         if not os.path.exists(error_folder):
             os.makedirs(error_folder)
@@ -58,8 +66,8 @@ def process_pdfs(input_folder, output_folder, max_workers=4):
         os.makedirs(processed_folder)
 
     pdf_files = [f for f in os.listdir(input_folder) if f.lower().endswith('.pdf')]
-    total_files = len(pdf_files)
-    processed_files = 0
+    #total_files = len(pdf_files)
+    total_files = 0
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = {
@@ -75,11 +83,14 @@ def process_pdfs(input_folder, output_folder, max_workers=4):
             pdf_file = futures[future]
             try:
                 future.result()
-                processed_files += 1
+                total_files += 1
             except Exception as e:
                 print(f"Error procesando {pdf_file}: {e}")
 
-    print(f"\nArchivos procesados: {processed_files} de {total_files}")
+    print("\n");
+    print(f"Total de archivos: {total_files}")
+    print(f"Procesados correctamente: {ok_files}")
+    print(f"Problemáticos: {ko_files}")
 
 if __name__ == "__main__":
     import sys
