@@ -10,10 +10,7 @@ EJECUCION:
         python.exe pdf_plumber_dos.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
 
 PENDIENTE:
-    - Poner progreso. '.' al iniciar proceso. ':' al finalizar proceso. 'X' al error.
-    - Archivos que no se pueden procesar copiar en SALIDA_ERROR.
-    - Tratamiento archivos que se generan con 0 bytes.
-
+    - Probar con otras librerías.
 
 PRUEBAS:
     PORTATIL IRATXE:
