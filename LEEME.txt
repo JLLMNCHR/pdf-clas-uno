@@ -3,11 +3,11 @@
 EJECUCION:
     CASA:
         cd C:\CODIGO\VSCODE\PYTHON\pdf-clas-uno
-        python.exe pdf_plumber_dos.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
+        python.exe pdf_extractor_plumber.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
 
     OFICINA:
         cd C:\CODIGO\VSCODE\NO-TIREA\PYTHON\pdf-clas-uno
-        python.exe pdf_plumber_dos.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
+        python.exe pdf_extractor_plumber.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
 
 PENDIENTE:
     - Probar con otras librerías.
@@ -17,31 +17,31 @@ PENDIENTE:
 PRUEBAS:
     PORTATIL IRATXE:
         Unidad C:
-            python.exe pdf_plumber_dos.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
+            python.exe pdf_extractor_plumber.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
                 85 archivos: Tiempo de ejecución: 16.36 segundos
 
         Unidad D: (puerto No USB)
-            python.exe pdf_plumber_dos.py D:/PRUEBAS_PDF/ENTRADA D:/PRUEBAS_PDF/SALIDA
+            python.exe pdf_extractor_plumber.py D:/PRUEBAS_PDF/ENTRADA D:/PRUEBAS_PDF/SALIDA
                 85 archivos: Tiempo de ejecución: 16.60 segundos
 
         Unidad D: (puerto USB)
-            python.exe pdf_plumber_dos.py D:/PRUEBAS_PDF/ENTRADA D:/PRUEBAS_PDF/SALIDA
+            python.exe pdf_extractor_plumber.py D:/PRUEBAS_PDF/ENTRADA D:/PRUEBAS_PDF/SALIDA
                 85 archivos: Tiempo de ejecución: 16.30 segundos
 
     PORTATIL CASA:
         Unidad C:
-            python.exe pdf_plumber_dos.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
+            python.exe pdf_extractor_plumber.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
                 85 archivos: Tiempo de ejecución: 30.75 segundos
 
         Unidad D: (puerto No USB)
-            python.exe pdf_plumber_dos.py D:/PRUEBAS_PDF/ENTRADA D:/PRUEBAS_PDF/SALIDA
+            python.exe pdf_extractor_plumber.py D:/PRUEBAS_PDF/ENTRADA D:/PRUEBAS_PDF/SALIDA
                 85 archivos: Tiempo de ejecución: 31.27 segundos
 
         Unidad D: (puerto USB)
-            python.exe pdf_plumber_dos.py D:/PRUEBAS_PDF/ENTRADA D:/PRUEBAS_PDF/SALIDA
+            python.exe pdf_extractor_plumber.py D:/PRUEBAS_PDF/ENTRADA D:/PRUEBAS_PDF/SALIDA
                 85 archivos: Tiempo de ejecución: 31.17 segundos
 
     OFICINA:
         Unidad C:
-            python.exe pdf_plumber_dos.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
+            python.exe pdf_extractor_plumber.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
                 85 archivos: Tiempo de ejecución: 43.05 segundos
