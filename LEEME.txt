@@ -4,10 +4,12 @@ EJECUCION:
     CASA:
         cd C:\CODIGO\VSCODE\PYTHON\pdf-clas-uno
         python.exe pdf_extractor_fitz.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
+        python.exe txt_glosator.py C:/PRUEBAS_PDF/SALIDA C:/PRUEBAS_PDF/SALIDA/DICCIONARIO
 
     OFICINA:
         cd C:\CODIGO\VSCODE\NO-TIREA\PYTHON\pdf-clas-uno
         python.exe pdf_extractor_fitz.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
+        python.exe txt_glosator.py C:/PRUEBAS_PDF/SALIDA C:/PRUEBAS_PDF/SALIDA/DICCIONARIO
 
 PENDIENTE:
     - Probar con otras librerías.
