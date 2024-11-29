@@ -3,15 +3,14 @@
 EJECUCION:
     CASA:
         cd C:\CODIGO\VSCODE\PYTHON\pdf-clas-uno
-        python.exe pdf_extractor_plumber.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
+        python.exe pdf_extractor_fitz.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
 
     OFICINA:
         cd C:\CODIGO\VSCODE\NO-TIREA\PYTHON\pdf-clas-uno
-        python.exe pdf_extractor_plumber.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
+        python.exe pdf_extractor_fitz.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
 
 PENDIENTE:
     - Probar con otras librerías.
-    - Resolver el problema de que junte las palabras cuando las frases tienen un tamaño pequeño.
     - Resolver el problema de los que no puede extraer.
 
 PRUEBAS:
@@ -45,3 +44,7 @@ PRUEBAS:
         Unidad C:
             python.exe pdf_extractor_plumber.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
                 85 archivos: Tiempo de ejecución: 43.05 segundos
+
+        Unidad C:
+            python.exe pdf_extractor_fitz.py C:/PRUEBAS_PDF/ENTRADA C:/PRUEBAS_PDF/SALIDA
+                85 archivos: Tiempo de ejecución: 1.84 segundos
