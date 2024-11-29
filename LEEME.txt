@@ -11,6 +11,8 @@ EJECUCION:
 
 PENDIENTE:
     - Probar con otras librerías.
+    - Resolver el problema de que junte las palabras cuando las frases tienen un tamaño pequeño.
+    - Resolver el problema de los que no puede extraer.
 
 PRUEBAS:
     PORTATIL IRATXE:
