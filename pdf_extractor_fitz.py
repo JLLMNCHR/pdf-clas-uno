@@ -56,7 +56,7 @@ def extract_text_from_pdf(input_path, output_path, processed_folder):
             os.makedirs(error_folder)
         os.rename(input_path, os.path.join(error_folder, os.path.basename(input_path)))
 
-def process_pdfs(input_folder, output_folder, max_workers=4):
+def process_pdfs(input_folder, output_folder, max_workers=1):
     """Procesa todos los PDFs, mueve los procesados a PROCESADOS y los que fallan a ERROR."""
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
