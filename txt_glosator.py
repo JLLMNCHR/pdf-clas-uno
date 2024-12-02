@@ -47,7 +47,7 @@ def actualizar_diccionario(input_folder, output_folder):
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
-        print("Uso: python script.py <carpeta_entrada> <carpeta_salida>")
+        print("Uso: python txt_glosator.py <carpeta_entrada> <carpeta_salida>")
     else:
         try:
             input_folder = sys.argv[1]

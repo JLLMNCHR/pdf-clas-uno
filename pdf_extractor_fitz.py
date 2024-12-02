@@ -97,7 +97,7 @@ if __name__ == "__main__":
     import time
 
     if len(sys.argv) != 3:
-        print("Uso: python pdf_plumber_dos.py <carpeta_entrada> <carpeta_salida>")
+        print("Uso: python pdf_extractor_fitz.py <carpeta_entrada> <carpeta_salida>")
         sys.exit(1)
 
     input_folder = sys.argv[1]
