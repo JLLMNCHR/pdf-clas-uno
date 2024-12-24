@@ -1,9 +1,9 @@
 
 
 EJECUCION:
-
     REAL:
         python.exe pdf_extractor_fitz.py "D:/PDF Documents" "D:/PDF Documents/SALIDA"
+        python.exe pdf_extractor_pytesseract.py "D:/PDF Documents" "D:/PDF Documents/SALIDA"
         python.exe txt_glosator.py "D:/PDF Documents/SALIDA" "D:/PDF Documents/SALIDA/DICCIONARIO"
 
     CASA:
