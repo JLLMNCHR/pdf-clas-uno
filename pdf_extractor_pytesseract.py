@@ -36,11 +36,11 @@ def extract_text_from_pdf(input_path, output_path, processed_folder):
                 if page_text and page_text.strip():
                     text += page_text
                 else:
-                    print(f"Usando OCR para la página {page_num}...")
-                    text += ocr_page(input_path, page_num, 'esp')
+                    # print(f"Usando OCR para la página {page_num}...")
+                    text += ocr_page(input_path, page_num, 'spa')
             except Exception as e:
                 print(f"Error al procesar la página {page_num}: {e}")
-                text += ocr_page(input_path, page_num, 'esp')
+                text += ocr_page(input_path, page_num, 'spa')
         
         # Si el texto está vacío, mover el PDF a la carpeta ERROR
         if not text.strip():
@@ -105,7 +105,7 @@ def process_pdfs(input_folder, output_folder, max_workers=1):
     print(f"Procesados correctamente: {ok_files}")
     print(f"Problemáticos: {ko_files}")
 
-def ocr_page(pdf_path, page_num, ocr_lang='esp'):
+def ocr_page(pdf_path, page_num, ocr_lang='spa'):
     """
     Aplica OCR a una página específica de un PDF.
     
