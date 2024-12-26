@@ -36,10 +36,8 @@ def extract_text_from_pdf(input_path, output_path, processed_folder):
                 if page_text and page_text.strip():
                     text += page_text
                 else:
-                    # print(f"Usando OCR para la página {page_num}...")
                     text += ocr_page(input_path, page_num, 'spa')
-            except Exception as e:
-                print(f"Error al procesar la página {page_num}: {e}")
+            except Exception as e:                                
                 text += ocr_page(input_path, page_num, 'spa')
         
         # Si el texto está vacío, mover el PDF a la carpeta ERROR
@@ -98,7 +96,7 @@ def process_pdfs(input_folder, output_folder, max_workers=1):
                 future.result()
                 total_files += 1
             except Exception as e:
-                print(f"Error procesando {pdf_file}: {e}")
+                logging.error(f"Error procesando {pdf_file}: {e}")
 
     print("\n");
     print(f"Total de archivos: {total_files}")
@@ -114,6 +112,7 @@ def ocr_page(pdf_path, page_num, ocr_lang='spa'):
     :param ocr_lang: Idioma para el OCR.
     :return: Texto extraído por OCR.
     """
+    # print(f"Usando OCR para la página {page_num}...")
     try:
         # Convertir la página en imagen
         images = convert_from_path(pdf_path, first_page=page_num, last_page=page_num)
@@ -121,7 +120,8 @@ def ocr_page(pdf_path, page_num, ocr_lang='spa'):
             ocr_text = pytesseract.image_to_string(images[0], lang=ocr_lang)
             return ocr_text
     except Exception as e:
-        print(f"Error al aplicar OCR a la página {page_num}: {e}")
+        print("x", end='', flush=True)
+        logging.error(f"Error al aplicar OCR a la página {page_num}: {e}")
     return ""
 
 if __name__ == "__main__":
