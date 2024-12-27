@@ -21,7 +21,7 @@ EJECUCION:
 
 PENDIENTE:
     - Probar con otras librerías.
-    - Resolver el problema de los que no puede extraer.
+    - Clasificación con ayuda de IA.
 
 PRUEBAS:
     PORTATIL IRATXE:

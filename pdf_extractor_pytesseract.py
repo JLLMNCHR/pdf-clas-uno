@@ -48,7 +48,7 @@ def extract_text_from_pdf(input_path, output_path, processed_folder):
         if not text.strip():
             print("!", end='', flush=True)
             ko_files += 1
-            logging.error(f"{nom_fich} sin contenido")
+            logging.error(f"{nom_fich} Sin contenido")
             if not os.path.exists(error_folder):
                 os.makedirs(error_folder)
             os.rename(input_path, os.path.join(error_folder, nom_fich))
@@ -66,7 +66,7 @@ def extract_text_from_pdf(input_path, output_path, processed_folder):
     except Exception as e:
         print("X", end='', flush=True)
         ko_files += 1
-        logging.error(f"{nom_fich} Error: {e}")
+        logging.error(f"{nom_fich} Excepción (1): {e}")
         if not os.path.exists(error_folder):
             os.makedirs(error_folder)
         os.rename(input_path, os.path.join(error_folder, nom_fich))
@@ -100,7 +100,7 @@ def process_pdfs(input_folder, output_folder, max_workers=1):
                 # total_files += 1
             except Exception as e:
                 nom_fich = os.path.basename(pdf_file)
-                logging.error(f"{nom_fich} Excepción {e}")
+                logging.error(f"{nom_fich} Excepción (2): {e}")
 
     print("\n");
     print(f"Total de archivos: {total_files}")
@@ -126,7 +126,7 @@ def ocr_page(pdf_path, page_num, ocr_lang='spa'):
     except Exception as e:
         print("x", end='', flush=True)
         nom_fich = os.path.basename(pdf_path)
-        logging.error(f"{nom_fich} Error al aplicar OCR a la página {page_num}: {e}")
+        logging.error(f"{nom_fich} Excepción al aplicar OCR a la página {page_num}: {e}")
     return ""
 
 if __name__ == "__main__":
